@@ -328,19 +328,19 @@ export default function HeroSection() {
              {/* Hero Text */}
              <div className='text-center py-12 px-4'>
                <motion.h1 
-                 ref={ref} 
-                 variants={variant} 
-                 initial='hidden' 
-                 animate={inView?'':'visible'} 
+                //  ref={ref} 
+                //  variants={variant} 
+                //  initial='hidden' 
+                //  animate={inView?'':'visible'} 
                  className="text-3xl md:text-6xl lg:text-8xl cinzel-bold-header"
                > 
                  <span className="text-sky-400">Designing</span> What You Imagine
                </motion.h1>
                <motion.h1 
-                 ref={ref} 
-                 variants={variant} 
-                 initial='hidden' 
-                 animate={inView?'':'visible'} 
+                //  ref={ref} 
+                //  variants={variant} 
+                //  initial='hidden' 
+                //  animate={inView?'':'visible'} 
                  className="text-3xl md:text-6xl lg:text-8xl cinzel-bold-header"
                >
                  Building <span className="text-sky-400">What</span> You Need
