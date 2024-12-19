@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'tanker';
+    src: url('./assets/Tanker-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'amster';
+    src: url('./assets/fonts/amster.otf');
+}
+
+@font-face {
+    font-family: 'alpino';
+    src: url('./assets/fonts/Alpino-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'agharti';
+    src: url('./assets/fonts/AghartiFamilyTest-SemiWideBold-BF66722ee18752b.otf');
+}
+
+@font-face {
+    font-family: 'aghartibold';
+    src: url('./assets/fonts/aghartibold.otf');
+}

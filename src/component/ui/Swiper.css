@@ -1,0 +1,56 @@
+/* Swiper.css */
+#app {
+  height: 100%;
+}
+
+html,
+body {
+  position: relative;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #111; /* Darker background for better contrast */
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #fff; /* White text for better contrast */
+}
+
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 40vw; /* Set slide width relative to viewport width */
+  height: 60vh; /* Set slide height relative to viewport height */
+  transition: transform 0.5s ease-out; /* Smooth transition for 3D effect */
+}
+
+.swiper-slide-active {
+  transform: translateZ(-150px) scale(0.9); /* Push the active slide back slightly */
+  transition: transform 0.5s ease-out; /* Smooth transition for active slide */
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-container {
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+}
+
+.swiper-pagination-bullet {
+  background: #fff; /* White bullets for pagination */
+}
+
+.swiper-pagination-bullet-active {
+  background: #007aff; /* Highlight color for active pagination bullet */
+}
