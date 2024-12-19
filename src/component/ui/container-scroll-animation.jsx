@@ -4,11 +4,12 @@ import { useScroll, useTransform, motion } from "framer-motion";
 
 const ContainerScroll = ({ titleComponent, children }) => {
   const containerRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
   const { scrollYProgress } = useScroll({
     target: containerRef,
+    ...(isMobile && {offset : ["start start", "end start"]})
   });
 
-  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -22,7 +23,7 @@ const ContainerScroll = ({ titleComponent, children }) => {
   }, []);
 
   const scaleDimensions = () => {
-    return isMobile ? [0.7, 0.8] : [1.05, 1];
+    return isMobile ? [0.8, 0.9] : [1.05, 1];
   };
 
   const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
@@ -37,7 +38,7 @@ const ContainerScroll = ({ titleComponent, children }) => {
       <div
         className="py-0 md:py-40 w-full relative"
         style={{
-          perspective: "1000px",
+          perspective: isMobile? "2000px" : "1000px",
         }}
       >
         <Header translate={translate} titleComponent={titleComponent} isMobile={isMobile} />

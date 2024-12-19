@@ -61,7 +61,7 @@ export function FlipWordsDemo() {
   ];
 
   return (
-    <div className="h-[10rem] flex flex-col justify-center items-center px-4 relative">
+    <div className="h-[10rem] pt-10 lg:pt-0 flex flex-col justify-center items-center px-4 relative">
       <div className="text-xl sm:text-2xl md:text-4xl lg:text-5xl mx-auto cinzel-bold-header text-white text-center">
         We Build
         <FlipWords words={words} /> <br />

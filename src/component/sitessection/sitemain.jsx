@@ -11,34 +11,34 @@ const ProjectSlider = () => {
 
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "NimbusHub",
       description: "Building future-ready digital solutions! We specialize in crafting scalable architectures for web and mobile platforms, ensuring seamless growth and robust performance for your business needs",
       technologies: ["Node.js", "React", "AWS", "MongoDB"]      ,
       image: NimbushubImage,
-      link: "#",
+      link: "https://nimbushub.agency",
       features: [
-        "Custom scalable architectures for growth.",
-        "High performance and reliability.",
-        "Modern frameworks and cloud-ready.",
-        "Ongoing support and maintenance."
-      ]      
+        "Scalable architectures for growth.",
+        "Reliable and high-performing solutions.",
+        "Cloud-ready with modern frameworks.",
+        "Continuous support and updates."
+      ]     
     },
     {
-      title: "Social Media Dashboard",
+      title: "Receiptify",
       description: "Discover your unique music journey! Log in with Spotify, Apple Music, or YouTube Music to get a personalized receipt of your listening habits and favorite tracks.",
-      technologies: ["React Native", "APIs", "Node.js", "Firebase"]  ,
+      technologies: ["React Native", "Expo", "Firebase", "Spotify API", "Apple Music API", "YouTube Data API"] ,
       image: chatting,
       link: "#",
       features: [
-        "Login with Spotify, Apple Music, or YouTube Music.",
-        "Personalized music taste receipts.",
-        "Top artists, genres, and tracks insights.",
-        "Shareable and user-friendly design."
+        "Login with Spotify, Apple, or YouTube Music.",
+        "Personalized music receipts and insights.",
+        "Top artists, genres, and tracks.",
+        "Shareable, user-friendly design."
       ]
       
     },
     {
-      title: "Task Management App",
+      title: "VIBE",
       description: "Your music, your way! Explore, stream, and create playlists with an intuitive interface designed for music lovers. A seamless listening experience awaits.",
       technologies: ["React", "Node.js", "GraphQL", "MongoDB"]  ,
       image: vibe,
@@ -52,6 +52,23 @@ const ProjectSlider = () => {
       
     }
   ];
+
+  const navButtonVariants = {
+    initial: {
+      opacity: 0.8,
+      scale: 1,
+      y: '-50%'  // Ensure button is always vertically centered
+    },
+    hover: {
+      opacity: 1,
+      scale: 1.1,
+      y: '-50%'  // Maintain vertical centering during hover
+    },
+    tap: {
+      scale: 0.9,
+      y: '-50%'  // Maintain vertical centering during tap
+    }
+  };
 
   const nextProject = () => {
     setCurrentProject((prev) => 
@@ -182,8 +199,8 @@ const ProjectSlider = () => {
       {/* Navigation Buttons */}
       <motion.button
         onClick={prevProject}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
+        // whileHover={{ scale: 1.1 }}
+        // whileTap={{ scale: 0.9 }}
         className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-10 bg-zinc-700/30 text-zinc-300 rounded-full p-3 hover:bg-zinc-700/50"
       >
         <ChevronLeft className="w-6 md:w-8 h-6 md:h-8" />
@@ -191,8 +208,8 @@ const ProjectSlider = () => {
 
       <motion.button
         onClick={nextProject}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
+        // whileHover={{ scale: 1.1 }}
+        // whileTap={{ scale: 0.9 }}
         className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-10 bg-zinc-700/30 text-zinc-300 rounded-full p-3 hover:bg-zinc-700/50"
       >
         <ChevronRight className="w-6 md:w-8 h-6 md:h-8" />
