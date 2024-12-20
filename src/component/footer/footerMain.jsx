@@ -4,8 +4,11 @@ import mainLogo from '../../assets/primarylogo.png'
 import instaLogo from '../../assets/instagram.png'
 import { useState } from "react";
 import MeetingScheduler from "../meetingschedule/meetingschedule";
+import { useNavigate } from 'react-router-dom';
 export const FooterMain = () => {
   const [isOpen,setIsOpen] = useState(false)
+
+  const navigate = useNavigate()
   return (
     <div>
       <div className="flex flex-col justify-center   items-center bg-black">
@@ -46,19 +49,19 @@ export const FooterMain = () => {
           </div>
           <div className="gap-5 flex flex-col font-oswald lg:text-lg">
             <div className="text-center lg:text-left">COMPANY</div>
-            <div className="flex flex-col gap-2 font-roboto text-xs lg:text-base text-center lg:text-left">
-              <div>Expert Testimonials</div>
-              <div>Customer Testimonials</div>
+            <div className="flex cursor-pointer flex-col gap-2 font-roboto text-xs lg:text-base text-center lg:text-left">
+              {/* <div>Expert Testimonials</div> */}
+              {/* <div>Customer Testimonials</div> */}
               <div>Twitter</div>
               <div>Email</div>
-              <div>Support</div>
+              <div onClick={() => {navigate('/contactus')}} >Support</div>
             </div>
           </div> 
           
           <div className="gap-5 flex flex-col font-oswald lg:text-lg">
             <div className="text-center lg:text-left">KNOW MORE</div>
-            <div className="flex flex-col gap-2 font-roboto  text-xs lg:text-base text-center lg:text-left">
-              <div>About us</div>
+            <div className="flex cursor-pointer flex-col gap-2 font-roboto  text-xs lg:text-base text-center lg:text-left">
+              <div onClick={() => {navigate('/aboutus')}} >About us</div>
               <div>Terms and policies</div>
               <div>Pricing</div>
               <div className="lg:hidden block" >Demo</div>
@@ -66,8 +69,8 @@ export const FooterMain = () => {
           </div>
           <div className=" hidden  gap-1 lg:gap-5 lg:flex flex-col font-oswald text-sm lg:text-lg">
             <div className="text-center  lg:text-left">GET STARTED</div>
-            <div className="flex flex-col lg:h-full font-roboto text-sm lg:justify-between lg:text-base text-center lg:text-left">
-              <div>Demo</div>
+            <div className="flex  cursor-pointer flex-col lg:h-full font-roboto text-sm lg:justify-between lg:text-base text-center lg:text-left">
+              <div onClick={() => setIsOpen(true)} >Demo</div>
              
             </div>
           </div>

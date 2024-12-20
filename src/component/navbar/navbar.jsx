@@ -24,10 +24,20 @@ export default function Navbar() {
   }`}
 >
 
-        <div  onClick={() => navigate('/') }  className="text-lg lg:text-base cursor-pointer">Home</div>
-        <div  onClick={() => navigate('/aboutus') } className="text-lg lg:text-base cursor-pointer">About</div>
-        <div  onClick={() => navigate('/Contactus') } className="text-lg lg:text-base cursor-pointer">ContactUs</div>
-        <div className="text-lg lg:text-base cursor-pointer">Schedule Meeting</div>
+        <div  onClick={() => {
+          navigate('/') 
+          setIsMenuOpen(false)
+         } }  
+         className="text-lg lg:text-base cursor-pointer">Home</div>
+        <div  onClick={() => {
+          navigate('/aboutus')
+           setIsMenuOpen(false)
+        } } className="text-lg lg:text-base cursor-pointer">About</div>
+        <div  onClick={() => {
+          navigate('/Contactus')
+          setIsMenuOpen(false)
+          } } className="text-lg lg:text-base cursor-pointer">ContactUs</div>
+        <div  onClick={() => setIsOpen(true)} className="text-lg lg:text-base cursor-pointer">Schedule Meeting</div>
         <div className="lg:hidden">
           <Button
             onClick={() => setIsOpen(true)}
