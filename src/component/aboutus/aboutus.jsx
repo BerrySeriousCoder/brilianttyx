@@ -1,25 +1,26 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Code } from 'lucide-react';
+import profileImage from '../../assets/profileiconimage.png'
 
 function Aboutus() {
   const team = [
     {
-      name: "Sarah Johnson",
+      name: "Harsh Vardhan Singh",
       role: "Founder & CEO",
-      imageUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400",
+      imageUrl: profileImage,
       delay: 0.2
     },
     {
-      name: "Michael Chen",
-      role: "Technical Director",
-      imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400",
+      name: "Harsh Raj",
+      role: "CMO",
+      imageUrl: profileImage,
       delay: 0.4
     },
     {
-      name: "Emily Rodriguez",
-      role: "Lead Designer",
-      imageUrl: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400",
+      name: "Navneet Mishra",
+      role: "CTO",
+      imageUrl: profileImage,
       delay: 0.6
     }
   ];
@@ -37,10 +38,10 @@ function Aboutus() {
             className="max-w-3xl mx-auto text-center"
           >
             <Code className="w-16 h-16 text-primary-cyan mx-auto mb-6" />
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary-purple to-primary-cyan bg-clip-text text-transparent">
+            <h1 className=" text-2xl lg:text-4xl text-white md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary-purple to-primary-cyan bg-clip-text text-transparent">
               About Our Agency
             </h1>
-            <p className="text-xl text-gray-300">
+            <p className=" lg:text-xl text-gray-300">
               We're a passionate team of developers, designers, and innovators dedicated to crafting exceptional digital experiences.
             </p>
           </motion.div>
@@ -48,7 +49,7 @@ function Aboutus() {
       </div>
 
       {/* Mission Section */}
-      <div className="bg-black/50 py-16">
+      <div className="bg-black/50 lg:py-16">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0 }}
@@ -56,8 +57,8 @@ function Aboutus() {
             transition={{ duration: 0.8 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h2 className="text-3xl font-bold mb-8 text-white">Our Mission</h2>
-            <p className="text-gray-300 text-lg leading-relaxed mb-6">
+            <h2 className=" text-2xl  lg:text-3xl font-bold mb-8 text-white">Our Mission</h2>
+            <p className="text-gray-300 lg:text-lg leading-relaxed mb-6">
               We strive to transform innovative ideas into powerful digital solutions that drive business growth and create meaningful user experiences. Our commitment to excellence and cutting-edge technology ensures we deliver results that exceed expectations.
             </p>
             <div className="w-24 h-1 bg-gradient-to-r from-primary-purple to-primary-cyan mx-auto" />
