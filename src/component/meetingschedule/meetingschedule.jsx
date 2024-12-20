@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 const Overlay = styled(motion.div)`
   position: fixed;
   top: 0;
@@ -80,82 +82,115 @@ const Button = styled.button`
 `;
 
 const MeetingScheduler = ({ isOpen, onClose }) => {
-    
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    whatsapp: "",
     date: "",
     time: "",
   });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Scheduled Meeting:", formData);
-    onclose()
-    // setIsOpen(false);
-    // Add your form submission logic here
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/meetings`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to schedule the meeting. Please try again.");
+      }
+
+      const data = await response.json();
+      console.log("Meeting scheduled:", data);
+      alert("Meeting scheduled successfully!");
+      onClose();
+    } catch (err) {
+      console.error(err);
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  if (!isOpen) return null
+  if (!isOpen) return null;
 
   return (
     <div>
-
-        <Overlay
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+      <Overlay
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <PopupContainer
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.8, opacity: 0 }}
         >
-          <PopupContainer
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.8, opacity: 0 }}
-          >
-            <Header>
-              Schedule a Meeting
-              <CloseButton onClick={onClose}>&times;</CloseButton>
-            </Header>
-            <form onSubmit={handleSubmit}>
-              <Input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={handleInputChange}
-                required
-              />
-              <Input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                value={formData.email}
-                onChange={handleInputChange}
-                required
-              />
-              <Input
-                type="date"
-                name="date"
-                value={formData.date}
-                onChange={handleInputChange}
-                required
-              />
-              <Input
-                type="time"
-                name="time"
-                value={formData.time}
-                onChange={handleInputChange}
-                required
-              />
-              <Button  type="submit">Confirm</Button>
-            </form>
-          </PopupContainer>
-        </Overlay>
-     
+          <Header>
+            Schedule a Meeting
+            <CloseButton onClick={onClose}>&times;</CloseButton>
+          </Header>
+          <form onSubmit={handleSubmit}>
+            <Input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={handleInputChange}
+              required
+            />
+            <Input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              value={formData.email}
+              onChange={handleInputChange}
+              required
+            />
+            <Input
+              type="text"
+              name="whatsapp"
+              placeholder="WhatsApp Number"
+              value={formData.whatsapp}
+              onChange={handleInputChange}
+              required
+            />
+            <Input
+              type="date"
+              name="date"
+              value={formData.date}
+              onChange={handleInputChange}
+              required
+            />
+            <Input
+              type="time"
+              name="time"
+              value={formData.time}
+              onChange={handleInputChange}
+              required
+            />
+            {error && <p style={{ color: "red" }}>{error}</p>}
+            <Button type="submit" disabled={loading}>
+              {loading ? "Scheduling..." : "Confirm"}
+            </Button>
+          </form>
+        </PopupContainer>
+      </Overlay>
     </div>
   );
 };
