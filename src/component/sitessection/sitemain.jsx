@@ -4,6 +4,8 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import NimbushubImage from '../../assets/sites/nimbushub.png'
 import chatting from '../../assets/ProductDesign/Image3.png'
 import vibe from '../../assets/ProductDesign/Image15.png'
+import elegance from '../../assets/sites/elegance.png'
+import housecleaning from '../../assets/sites/housecleaning.png'
 import SiteSection from './site';
 
 const ProjectSlider = () => {
@@ -23,6 +25,34 @@ const ProjectSlider = () => {
         "Continuous support and updates."
       ]     
     },
+    {
+      title: "Elegance template",
+      description: "Revolutionizing the beauty industry with a sleek and user-friendly salon booking platform. Elegance empowers salons to manage appointments, track inventory, and offer seamless online booking to clients.",
+      technologies: ["React", "Node.js", "PostgreSQL", "vercel"],
+      image: elegance,
+      link: "https://elegancesalon.vercel.app",
+      features: [
+        "Easy-to-use online booking system.",
+        "Integrated inventory and staff management.",
+        "Automated appointment reminders and notifications.",
+        "Secure payment integration for hassle-free transactions.",
+        "Mobile-friendly design for clients on the go."
+      ]
+    }, 
+    {
+      title: "Sunshine House Cleaning template",
+      description: "Brightening homes with professional and reliable cleaning services. Sunshine House Cleaning offers an easy-to-use platform to book trusted cleaners and ensure a spotless living space with minimal effort.",
+      technologies: ["React", "Firebase", "Stripe", "vercel"],
+      image: housecleaning,
+      link: "https://sunshinehousecleaning.vercel.app",
+      features: [
+        "Simple and quick online booking process.",
+        "Experienced and background-checked cleaners.",
+        "Customizable cleaning packages to suit your needs.",
+        "Real-time updates and notifications.",
+        "Safe and secure online payment options."
+      ]
+    },       
     {
       title: "Receiptify",
       description: "Discover your unique music journey! Log in with Spotify, Apple Music, or YouTube Music to get a personalized receipt of your listening habits and favorite tracks.",
@@ -57,16 +87,16 @@ const ProjectSlider = () => {
     initial: {
       opacity: 0.8,
       scale: 1,
-      y: '-50%'  // Ensure button is always vertically centered
+      y: '-50%'  
     },
     hover: {
       opacity: 1,
       scale: 1.1,
-      y: '-50%'  // Maintain vertical centering during hover
+      y: '-50%' 
     },
     tap: {
       scale: 0.9,
-      y: '-50%'  // Maintain vertical centering during tap
+      y: '-50%'  
     }
   };
 
@@ -93,7 +123,7 @@ const ProjectSlider = () => {
   return ( 
     <div>
         <SiteSection></SiteSection>
-    <div className="relative w-full h-screen flex items-center overflow-hidden bg-black text-white">
+    <div className="relative w-full h-[1000px] lg:h-screen flex items-center overflow-hidden bg-black text-white">
       <AnimatePresence mode="wait">
         <div 
           key={currentProject} 
@@ -185,6 +215,8 @@ const ProjectSlider = () => {
 
               <motion.a
                 href={projects[currentProject].link}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-block bg-emerald-600 text-white px-6 py-3 rounded-lg hover:bg-emerald-500 transition-colors"

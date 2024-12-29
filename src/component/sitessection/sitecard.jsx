@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import demoimage from '../../assets/ProductDesign/Image7.png';
 
 export default function({ sitedata }) {
     return (
